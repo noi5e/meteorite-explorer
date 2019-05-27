@@ -48,6 +48,12 @@ class App extends React.Component {
     event.preventDefault()
 
     console.log(this.state.searchTerm)
+
+    if (this.state.searchTerm.length > 0) {
+
+    } else {
+
+    }
   }
 
   render() {
@@ -55,7 +61,7 @@ class App extends React.Component {
       <div className="App">
         <h1 id="title">Meteorite Data Explorer</h1>
         <SearchBar onSubmit={(e) => this.handleSubmit(e)} onChange={(e) => this.handleChange(e)} searchTerm={this.state.searchTerm} />
-        { this.state.isLoaded ? <StrikeList meteoriteData={this.state.meteoriteData} /> : 'Loading Data...' }    
+        { this.state.isLoaded ? <StrikeList meteoriteData={this.state.meteoriteData} /> : <div id='table-placeholder'>Loading Data...</div> }    
       </div>
     );
   }

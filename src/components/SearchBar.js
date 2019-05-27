@@ -8,9 +8,9 @@ class SearchBar extends React.Component {
       <form id="search-bar" onSubmit={this.props.onSubmit}>
         <FormGroup controlId="searchTerm">
           <InputGroup>
-            <FormControl type="text" placeholder="Search by meteorite name..." value={this.props.searchTerm} onChange={this.props.onChange} />
+            <FormControl type="text" placeholder="Filter data by meteorite name..." value={this.props.searchTerm} onChange={this.props.onChange} />
             <InputGroup.Append>
-              <Button variant="outline-secondary">Search</Button>
+              <Button type="submit"variant="outline-secondary">Search</Button>
             </InputGroup.Append>
           </InputGroup>
         </FormGroup>
@@ -18,13 +18,6 @@ class SearchBar extends React.Component {
     );
   }
 }
-
-// <InputGroup.Button>
-//               <Button type="submit">
-//                 Search
-//               </Button>
-//             </InputGroup.Button>
-//           </InputGroup>
 
 SearchBar.propTypes = {
   onSubmit: PropTypes.func.isRequired,
