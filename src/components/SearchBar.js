@@ -5,7 +5,7 @@ import { FormGroup, FormControl, Button, InputGroup } from 'react-bootstrap'
 class SearchBar extends React.Component {
   render() {
     return (
-      <form onSubmit={this.props.onSubmit}>
+      <form id="search-bar" onSubmit={this.props.onSubmit}>
         <FormGroup controlId="searchTerm">
           <InputGroup>
             <FormControl type="text" placeholder="Search by meteorite name..." value={this.props.searchTerm} onChange={this.props.onChange} />

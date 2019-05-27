@@ -10,3 +10,8 @@ h1 {
 	text-shadow: 2px 2px 4px #444;
 	margin-top: 50px;
 }
+
+#search-bar {
+	width: 30%;
+	margin: 0 auto;
+}
