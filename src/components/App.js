@@ -1,12 +1,15 @@
 import React from 'react';
 import axios from 'axios'
 
+import StrikeList from './StrikeList.js'
+
 class App extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      meteoriteData: []
+      meteoriteData: [],
+      isLoaded: false
     }
   }
 
@@ -21,8 +24,11 @@ class App extends React.Component {
       }
     })
       .then((response) => {
+        console.log(response.data)
+
         this.setState({
-          meteoriteData: response.data
+          meteoriteData: response.data,
+          isLoaded: true
         })
       })
   }
@@ -30,7 +36,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1 id="title">Meteorite Explorer</h1>      
+        <h1 id="title">Meteorite Explorer</h1>
+        { this.state.isLoaded ? <StrikeList meteoriteData={this.state.meteoriteData} /> : 'Loading Data...' }    
       </div>
     );
   }
