@@ -36,7 +36,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1 id="title">Meteorite Explorer</h1>
+        <h1 id="title">Meteorite Data Explorer</h1>
         { this.state.isLoaded ? <StrikeList meteoriteData={this.state.meteoriteData} /> : 'Loading Data...' }    
       </div>
     );
