@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios'
 
 import StrikeList from './StrikeList.js'
+import SearchBar from './SearchBar.js'
 
 class App extends React.Component {
   constructor(props) {
@@ -9,8 +10,12 @@ class App extends React.Component {
 
     this.state = {
       meteoriteData: [],
-      isLoaded: false
+      isLoaded: false,
+      searchTerm: ''
     }
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -33,10 +38,23 @@ class App extends React.Component {
       })
   }
 
+  handleChange(event) {
+    this.setState({
+      searchTerm: event.target.value
+    })
+  }
+
+  handleSubmit(event) {
+    event.preventDefault()
+
+    console.log(this.state.searchTerm)
+  }
+
   render() {
     return (
       <div className="App">
         <h1 id="title">Meteorite Data Explorer</h1>
+        <SearchBar onSubmit={(e) => this.handleSubmit(e)} onChange={(e) => this.handleChange(e)} searchTerm={this.state.searchTerm} />
         { this.state.isLoaded ? <StrikeList meteoriteData={this.state.meteoriteData} /> : 'Loading Data...' }    
       </div>
     );
